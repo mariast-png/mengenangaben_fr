@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les quantités avec de – Französisch Klasse 8</title>
+<style>
+:root{--p:#6c5ce7;--g:#00b894;--r:#e17055;--y:#fdcb6e;--ink:#2d3436}
+*{box-sizing:border-box}
+body{margin:0 0 80px;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,#d9f4ff,#f1e6ff 50%,#ffeedd);min-height:100vh}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.93);padding:10px 16px 6px;box-shadow:0 4px 14px rgba(108,92,231,.15)}
+.ttl{font-size:1.25rem;font-weight:700}.st{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0;font-size:.95rem}
+.bar{height:9px;background:#e9e4ff;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),var(--y));transition:width .5s}
+nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:14px 10px 4px}
+nav button{border:0;border-radius:22px;padding:10px 16px;font:inherit;font-weight:700;background:#fff;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.1)}
+nav button.on{background:var(--p);color:#fff}
+main{max-width:860px;margin:0 auto;padding:8px 12px}
+.card{background:#fff;border-radius:22px;padding:16px 18px;margin:14px 0;box-shadow:0 6px 18px rgba(80,60,160,.12)}
+.card h3{margin:0 0 4px}.ins{margin:0 0 10px;color:#636e72}
+.box{background:linear-gradient(120deg,#fff3c4,#ffe0f0);border-radius:22px;padding:14px 18px;margin:14px 0;line-height:1.6}
+.it{background:#f6f3ff;border-radius:16px;padding:12px;margin:9px 0;transition:background .3s}
+.it.good{background:#d8fae8;animation:pop .5s}.it.bad{background:#ffe2da}
+@keyframes pop{40%{transform:scale(1.04)}}
+.q{margin-bottom:8px;line-height:1.5}.ex{color:#636e72;font-style:italic}
+.ch,.b{border:0;border-radius:14px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.13);padding:8px 13px;margin:3px;font:inherit;cursor:pointer}
+.ch.on{background:var(--p);color:#fff}.ch:hover{transform:translateY(-1px)}
+.b{background:var(--g);color:#fff;font-weight:700;padding:10px 18px;border-radius:22px;margin:10px 6px 0 0}.b.s{background:var(--p)}.b.o{background:var(--r)}
+.in,select{font:inherit;padding:8px 10px;border-radius:12px;border:0;box-shadow:inset 0 0 0 2px #d9d2ff;width:100%;max-width:520px;background:#fff}
+.in:focus,select:focus{outline:3px solid var(--y)}
+.ans{min-height:44px;background:#fff;border-radius:12px;padding:4px;margin-bottom:6px}
+.sol{margin-top:6px;color:#c0392b;font-weight:700}.fb{margin-top:8px;font-weight:700}
+.sc{background:#fff;border-radius:14px;padding:10px;line-height:1.9;font-size:1.1rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.fc{height:195px;position:relative;cursor:pointer}
+.fc>div{position:absolute;inset:0;backface-visibility:hidden;transition:transform .5s;border-radius:18px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:5px;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.fr{background:linear-gradient(150deg,#e8e1ff,#d3f6ec)}.bk{background:#fff7d6;transform:rotateY(180deg);font-size:.9rem}
+.fc.fl .fr{transform:rotateY(180deg)}.fc.fl .bk{transform:rotateY(360deg)}
+.big{font-size:2.4rem}.mt{width:80%;height:9px;background:#fff;border-radius:6px}.mt i{display:block;height:100%;background:var(--g);border-radius:6px}
+.fx{position:fixed;pointer-events:none;font-size:22px;z-index:99}
+#acc{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);text-align:center;padding:6px;box-shadow:0 -3px 12px rgba(0,0,0,.1);z-index:6}
+#acc button{border:0;background:#efeaff;border-radius:10px;min-width:36px;padding:6px 8px;margin:2px;font:inherit;font-size:1.05rem;cursor:pointer}
+.cert{background:linear-gradient(135deg,var(--p),var(--g));padding:14px;border-radius:26px;margin-top:14px}
+.cert>div{background:#fff;border-radius:18px;padding:26px 14px;text-align:center;line-height:1.7}
+.cert h2{margin:0;font-size:2rem}.cert .nm{font-size:1.9rem;font-weight:700;margin:8px 0}
+@media print{body *{visibility:hidden}.cert,.cert *{visibility:visible}.cert{position:absolute;left:0;top:0;width:100%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header class="top"><div class="ttl">🇫🇷 Les quantités avec <b>de</b> 🎒</div>
+<div class="st"><span>⭐ <b id="xp">0</b> XP</span><span>🔥 Serie: <b id="sk">0</b></span><span id="lv"></span></div>
+<div class="bar"><i id="pb"></i></div></header>
+<nav id="nav"></nav><main id="m"></main><div id="acc"></div>
+<script>
+const $=(s,e=document)=>e.querySelector(s),R=a=>a[Math.random()*a.length|0],S=a=>[...a].sort(()=>Math.random()-.5),N=(a,b)=>a+(Math.random()*(b-a+1)|0),pk=(a,n)=>S(a).slice(0,n),A=(n,f)=>Array.from({length:n},(_,i)=>f(i)),rf=()=>N(0,2);
+const h=(t,c,x,p)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.innerHTML=x;if(p)p.append(e);return e};
+const st={xp:0,s:0,ok:0,at:0};
+const Q={bc:{fr:'beaucoup de',core:'beaucoup de',n:0,d:['viele','viel'],ic:'🟢',lv:3},
+tr:{fr:'trop de',core:'trop de',n:0,d:['zu viele','zu viel'],ic:'🔴',lv:4},
+as:{fr:'assez de',core:'assez de',n:0,d:['genug','genug'],ic:'🟡',lv:2},
+pa:{fr:'pas assez de',core:'assez de',n:1,d:['nicht genug','nicht genug'],ic:'🟠',lv:1},
+np:{fr:'ne … pas de',core:'de',n:1,d:null,ic:'⚫',lv:0}};
+const L=Object.values(Q),g=q=>q.d?(q.d[0]==q.d[1]?q.d[0]:q.d[0]+' / '+q.d[1]):'kein(e)';
+const NO=[['élèves','Schüler','🧑‍🎓'],['livres','Bücher','📚'],['cahiers','Hefte','📓'],['stylos','Kugelschreiber','🖊️'],['devoirs','Hausaufgaben','📝'],['amis','Freunde','🤝'],['exercices','Übungen','✏️'],['questions','Fragen','❓'],['fautes','Fehler','❌'],['crayons','Bleistifte','🖍️'],['règles','Lineale','📏'],['feuilles','Blätter','📄'],['profs','Lehrer','👩‍🏫'],['idées','Ideen','💡'],['ordinateurs','Computer','💻'],['chaises','Stühle','🪑'],['sacs','Taschen','🎒'],['contrôles','Klassenarbeiten','📋'],['temps','Zeit','⏰',1,'keine'],['travail','Arbeit','💼',1,'keine'],['argent','Geld','💶',1,'kein']].map(a=>({fr:a[0],de:a[1],ic:a[2],u:a[3],k:a[4]||'keine'}));
+const F=[["Dans la classe, il y a","Dans la classe, il n'y a","In der Klasse gibt es","il y a"],["J'ai","Je n'ai","Ich habe","j'ai"],["Nous avons","Nous n'avons","Wir haben","nous avons"]];
+const vow=n=>/^[aeiouéèêh]/i.test(n),dn=(c,n,x)=>vow(n)&&!x&&/de$/.test(c)?c.slice(0,-2)+"d'"+n:c+' '+n,
+pr=(q,n,c)=>(q.n?'pas ':'')+dn(c||q.core,n.fr),sen=(f,q,n,c,x)=>F[f][q.n?1:0]+' '+(q.n?'pas ':'')+dn(c||q.core,n.fr,x)+'.',
+gq=(q,n)=>q.d?q.d[n.u?1:0]:n.k,ger=(f,q,n)=>F[f][2]+' '+gq(q,n)+' '+n.de+'.',
+er=(f,q,n)=>vow(n.fr)&&Math.random()<.5?sen(f,q,n,0,1):sen(f,q,n,q.core.replace(/de$/,R(['des','de la','du']))),
+nz=s=>s.toLowerCase().replace(/[’`´]/g,"'").replace(/[.!?]+$/,'').replace(/\s+/g,' ').trim();
+const LV=[[0,'Neuling 🐣'],[80,'Entdecker:in 🧭'],[200,'Mengen-Profi 🎒'],[400,'Meister:in 🏅'],[650,'Légende 👑']],lvl=()=>[...LV].reverse().find(l=>st.xp>=l[0]),acc=()=>st.at?Math.round(100*st.ok/st.at):0;
+function upd(){$('#xp').textContent=st.xp;$('#sk').textContent=st.s;const l=lvl(),i=LV.indexOf(l),nx=LV[i+1];$('#lv').textContent='Level: '+l[1];$('#pb').style.width=(nx?100*(st.xp-l[0])/(nx[0]-l[0]):100)+'%'}
+function burst(el,t){const r=el.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;for(let i=0;i<11;i++){const s=h('span','fx',i?R(['⭐','✨','🎉','💫','🌟']):'<b style="color:#00b894">'+t+'</b>',document.body);s.style.cssText=`left:${cx}px;top:${cy}px`;const a=Math.random()*6.28,d=50+Math.random()*80;s.animate([{transform:'translate(-50%,-50%) scale(1)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d-40}px) scale(.5) rotate(200deg)`,opacity:0}],{duration:1000,easing:'ease-out'}).onfinish=()=>s.remove()}}
+let last=null;document.addEventListener('focusin',e=>{if(e.target.classList.contains('in'))last=e.target});
+['é','è','à','ç','ê','ô','û','î','œ',"'"].forEach(k=>{const b=h('button',0,k,$('#acc'));b.onmousedown=e=>e.preventDefault();b.onclick=()=>{if(last){const s=last.selectionStart;last.value=last.value.slice(0,s)+k+last.value.slice(last.selectionEnd);last.focus();last.selectionStart=last.selectionEnd=s+1}}});
+/* Aufgabentypen */
+const mc=(c,qh,o,a)=>{const el=h('div','it',`<div class=q>${qh}</div>`,c),w=h('div',0,0,el);let s=-1;const bs=o.map((x,i)=>{const b=h('button','ch',x,w);b.onclick=()=>{s=i;bs.forEach(y=>y.classList.remove('on'));b.classList.add('on')};return b});return{el,chk:()=>s==a,sol:o[a]}};
+const mcs=(c,qh,ok,bad)=>{const o=S([...new Set([ok,...bad])]);return mc(c,qh,o,o.indexOf(ok))};
+const ty=(c,qh,ans)=>{const el=h('div','it',`<div class=q>${qh}</div>`,c),i=h('input','in',0,el),a=[].concat(ans);i.placeholder='…';i.autocomplete='off';i.spellcheck=false;return{el,chk:()=>a.map(nz).includes(nz(i.value)),sol:a[0]}};
+const order=(c,qh,s)=>{const el=h('div','it',`<div class=q>${qh}</div>`,c),a=h('div','ans',0,el),p=h('div',0,0,el);S(s.split(' ')).forEach(w=>{const b=h('button','ch',w,p);b.onclick=()=>(b.parentNode==p?a:p).append(b)});return{el,chk:()=>[...a.children].map(x=>x.textContent).join(' ')==s,sol:s}};
+const sel=(c,qh,o,a)=>{const el=h('div','it',`<div class=q>${qh}</div>`,c),s=h('select',0,'<option value="">– wähle –</option>'+o.map(x=>`<option>${x}</option>`).join(''),el);return{el,chk:()=>s.value==a,sol:a}};
+const SC=()=>{const k=R(['np','pa','as','tr','bc']),nd=N(5,8);return{n:R(NO.filter(x=>!x.u)),q:Q[k],nd,hv:{np:0,pa:N(1,nd-2),as:nd,tr:nd+N(4,6),bc:nd+N(3,4)}[k],m:{np:'😢',pa:'😟',as:'🙂',tr:'😫',bc:'😍'}[k]}};
+const vis=s=>`<div class=sc>Nötig: ${s.n.ic.repeat(s.nd)} (${s.nd})<br>Vorhanden: ${s.hv?s.n.ic.repeat(s.hv):'nichts'} (${s.hv}) &nbsp;Stimmung: <span style="font-size:1.6rem">${s.m}</span><br><i>${s.n.fr} = ${s.n.de}</i></div>`;
+const elis=(c,q,n)=>{const f=rf(),v=vow(n.fr);return mcs(c,`${F[f][q.n?1:0]} ${q.n?'pas ':''}${q.core.replace(/de$/,'')}<u>&nbsp;&nbsp;___&nbsp;&nbsp;</u> ${n.fr}.`,v?"d'":'de',[v?'de':"d'"])};
+const V=NO.filter(x=>vow(x.fr)),C=NO.filter(x=>!vow(x.fr));
+const P=[[
+{t:'🃏 Karteikarten',i:'Tippe auf die Karten: Vorderseite = Mengenangabe, Rückseite = Bedeutung + Beispiel. Das Thermometer zeigt, wie viel gemeint ist.',nc:1,f:c=>{const w=h('div','cards',0,c);L.forEach(q=>{const n=R(NO),f=rf(),k=h('div','fc',`<div class=fr><div class=big>${q.ic}</div><b>${q.fr}</b><div class=mt><i style="width:${12+q.lv*22}%"></i></div><small>tippen zum Umdrehen</small></div><div class=bk><b>${g(q)}</b><div>${n.ic} ${sen(f,q,n)}</div><small>${ger(f,q,n)}</small></div>`,w);k.onclick=()=>{k.classList.toggle('fl');if(!k.d){k.d=1;st.xp+=2;upd()}}});return[]}},
+{t:'🔗 Zuordnen',i:'Was bedeutet die Mengenangabe auf Deutsch?',pt:5,f:c=>pk(L,5).map(q=>sel(c,`${q.ic} <b>${q.fr}</b><br><span class=ex>${sen(rf(),q,R(NO))}</span>`,S(L.map(g)),g(q)))},
+{t:'🧠 Regel-Quiz',i:'Entdecke die Regel: Mengenangabe + de + Nomen. Vor Vokal wird de zu d\'.',pt:5,f:c=>[mcs(c,'trop de ___ livres – welcher Artikel steht nach der Mengenangabe?','kein Artikel: trop de livres',['les','des']),mcs(c,"Il n'y a pas ___ stylos.",'de',['des','les']),elis(c,R(L),R(V)),elis(c,R(L),R(C))]}],
+[
+{t:'✍️ Den passenden Satz ergänzen',i:'Wähle die Mengenangabe, die zum deutschen Satz passt.',pt:10,f:c=>pk(L,4).map(q=>{const n=R(NO),f=rf();return mcs(c,`<i>${ger(f,q,n)}</i><br>${F[f][q.n?1:0]} <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> .`,pr(q,n),pk([...L.filter(x=>x!=q&&x.n==q.n).map(x=>pr(x,n)),pr(q,n,q.core.replace(/de$/,'des')),pr(q,n,q.core.replace(/de$/,'de la'))],3))})},
+{t:"✂️ de oder d'?",i:"Vor Vokal (a, e, i, o, u, é …) wird de zu d'.",pt:10,f:c=>A(5,i=>elis(c,R(L),R(i%2?V:C)))},
+{t:'🧩 Satzpuzzle',i:'Tippe die Wörter in der richtigen Reihenfolge an. Zurück: nochmal antippen.',pt:10,f:c=>A(3,()=>{const q=R(L),n=R(NO),f=rf();return order(c,`🇩🇪 <i>${ger(f,q,n)}</i>`,sen(f,q,n))})},
+{t:'🔍 Fehlerdetektiv',i:'Ist der Satz richtig oder falsch?',pt:10,f:c=>A(5,()=>{const q=R(L),n=R(NO),f=rf(),b=Math.random()<.5;return mc(c,'🕵️ '+(b?er(f,q,n):sen(f,q,n)),['✅ richtig','❌ falsch'],b?1:0)})},
+{t:'⌨️ Eintippen',i:'Schreibe die französische Mengenangabe mit Nomen (mit de bzw. d\').',pt:10,f:c=>pk(L,4).map(q=>{const n=R(NO);return ty(c,`🇩🇪 <b>${gq(q,n)} ${n.de}</b> → 🇫🇷 ?`,pr(q,n))})}],
+[
+{t:'🏫 Situationen',i:'Vergleiche „Nötig“ und „Vorhanden“. Das Gesicht zeigt die Stimmung (😍 = super, 😫 = zu viel). Wähle den passenden Satz.',pt:15,f:c=>A(4,()=>{const s=SC(),f=rf();return mcs(c,vis(s),sen(f,s.q,s.n),['np','pa','as','tr','bc'].map(k=>sen(f,Q[k],s.n)))})},
+{t:'🌍 Übersetzen',i:'Schreibe den ganzen Satz auf Französisch.',pt:15,f:c=>A(3,()=>{const q=R(L),n=R(NO),f=rf();return ty(c,`🇩🇪 <b>${ger(f,q,n)}</b>`,sen(f,q,n))})},
+{t:'💬 Sprechblase',i:'Welche französische Übersetzung stimmt?',pt:15,f:c=>A(3,()=>{const q=R(L),n=R(NO),f=rf(),o=L.filter(x=>x!=q);return mcs(c,`💭 <b>${ger(f,q,n)}</b>`,sen(f,q,n),[er(f,q,n),sen(f,R(o),n)])})},
+{t:'🎒 Schulrucksack-Check',i:'Beschreibe die Situation in einem Satz mit dem angegebenen Beginn.',pt:15,f:c=>A(3,()=>{const s=SC(),f=rf();return ty(c,`${vis(s)}✏️ Satz mit « ${F[f][3]} » :`,sen(f,s.q,s.n))})},
+{t:'🛠️ Fehlerwerkstatt',i:'In jedem Satz steckt ein Fehler. Schreibe den richtigen Satz auf.',pt:15,f:c=>A(3,()=>{const q=R(L),n=R(NO),f=rf();return ty(c,`🔧 <i>${er(f,q,n)}</i>`,sen(f,q,n))})}]];
+const T=['🌱 1 Entdecken','🏋️ 2 Üben','🚀 3 Anwenden','🏆 Zertifikat'],tip=['Mengenangabe + <b>de</b> + Nomen <u>ohne Artikel</u>: <i>beaucoup de livres</i>. Vor Vokal: <i>beaucoup d\'élèves</i>. Verneinung: <i>Je n\'ai pas de stylos.</i> / <i>Il n\'y a pas assez de chaises.</i>','Jetzt trainieren! Richtige Antworten geben XP und lassen Sterne fliegen.','Jetzt wendest du alles an – die Aufgaben sind etwas schwieriger. Viel Erfolg!'];
+function card(p,t,pt){const k=h('section','card',`<h3>${t.t}</h3><p class=ins>${t.i}</p>`,p),b=h('div',0,0,k),items=t.f(b);if(t.nc)return;const f=h('div','fb',0,k),bt=h('button','b','✔️ Prüfen',k);
+bt.onclick=()=>{items.forEach(x=>{if(x.dn)return;st.at++;x.el.classList.remove('good','bad');if(x.chk()){x.dn=1;x.el.classList.add('good');x.el.style.pointerEvents='none';st.ok++;st.s++;const v=t.pt+(st.s>2?2:0);st.xp+=v;burst(x.el,'+'+v)}else{x.el.classList.add('bad');st.s=0;x.t=(x.t||0)+1;if(x.t>1&&!x.sh){x.sh=1;h('div','sol','💡 '+x.sol,x.el)}}});const d=items.filter(x=>x.dn).length;if(d==items.length&&!k.bn){k.bn=1;st.xp+=5;burst(bt,'🏆 +5')}f.textContent=d==items.length?'🎉 Alles richtig!':`${d}/${items.length} richtig – verbessere die roten Aufgaben und prüfe nochmal.`;upd()}}
+function show(p){const m=$('#m');m.innerHTML='';[...$('#nav').children].forEach((b,i)=>b.classList.toggle('on',i==p));scrollTo(0,0);if(p==3)return cert(m);h('div','box',tip[p],m);P[p].forEach(t=>card(m,t));const b=h('div',0,0,m);h('button','b o','🔄 Neue Aufgaben (neue Beispiele!)',b).onclick=()=>show(p);h('button','b s',p<2?'Weiter ➡️':'Zum Zertifikat 🏆',b).onclick=()=>show(p+1)}
+function cert(m){const k=h('section','card','<h3>🏆 Dein Zertifikat</h3><p class=ins>Gib deinen Namen ein und erstelle dein Zertifikat.</p>',m),i=h('input','in',0,k);i.placeholder='Dein Name';i.maxLength=40;const o=h('div',0,0,k);h('button','b','🎓 Zertifikat erstellen',k).onclick=()=>{const nm=i.value.trim()||'Super-Schüler:in',d=new Date().toLocaleDateString('de-DE');o.innerHTML=`<div class=cert><div><h2>🎓 ZERTIFIKAT 🎓</h2><div>Les quantités avec « de » – Französisch Klasse 8</div><div class=nm>${nm.replace(/[<>&]/g,'')}</div><div>hat erreicht:</div><div style="font-size:1.8rem;font-weight:700">⭐ ${st.xp} XP – ${lvl()[1]}</div><div>✅ ${st.ok} richtige Antworten · Trefferquote ${acc()} %</div><div>beaucoup de · trop de · assez de · pas assez de · pas de</div><div>${d}</div></div></div>`;h('button','b s','🖨️ Drucken / PDF',o).onclick=()=>print();h('button','b o','⬇️ Als Bild speichern',o).onclick=()=>png(nm,d)}}
+function png(nm,d){const c=document.createElement('canvas');c.width=1100;c.height=780;const x=c.getContext('2d'),gr=x.createLinearGradient(0,0,1100,780);gr.addColorStop(0,'#6c5ce7');gr.addColorStop(1,'#00b894');x.fillStyle=gr;x.fillRect(0,0,1100,780);x.fillStyle='#fff';x.fillRect(40,40,1020,700);x.textAlign='center';x.fillStyle='#2d3436';const t=(s,y,z,w)=>{x.font=`${w||'bold'} ${z}px "Trebuchet MS",sans-serif`;x.fillText(s,550,y)};t('🎓 ZERTIFIKAT 🎓',140,64);t('Les quantités avec « de » – Französisch Klasse 8',210,32,'normal');t(nm,320,72);t('hat erreicht:',390,30,'normal');t(`⭐ ${st.xp} XP – ${lvl()[1]}`,470,52);t(`✅ ${st.ok} richtige Antworten · Trefferquote ${acc()} %`,540,30,'normal');t('beaucoup de · trop de · assez de · pas assez de · pas de',610,26,'normal');t(d,690,26,'normal');const a=document.createElement('a');a.download='zertifikat.png';a.href=c.toDataURL();a.click()}
+T.forEach((s,i)=>h('button',0,s,$('#nav')).onclick=()=>show(i));upd();show(0);
+</script></body></html>
